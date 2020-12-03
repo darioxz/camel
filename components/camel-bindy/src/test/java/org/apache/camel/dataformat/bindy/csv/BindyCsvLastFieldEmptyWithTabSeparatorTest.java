@@ -37,7 +37,7 @@ public class BindyCsvLastFieldEmptyWithTabSeparatorTest {
     private static final String URI_MOCK_RESULT = "mock:result";
     private static final String URI_DIRECT_START = "direct:start";
 
-    private static String input1 = "VOA,12 abc street,Melbourne,VIC,3000,Australia,,";
+    private static String input1 = "VOA\t12 abc street\tMelbourne\tVIC\t3000\tAustralia\t\t";
 
     @Produce(URI_DIRECT_START)
     private ProducerTemplate template;
@@ -81,7 +81,7 @@ public class BindyCsvLastFieldEmptyWithTabSeparatorTest {
 
     }
 
-    @CsvRecord(separator = ",")
+    @CsvRecord(separator = "\t")
     public static class CsvSkipField {
         @DataField(pos = 1)
         private String attention;
